@@ -79,7 +79,7 @@ end
 M._load_items_from_all_folders = function(self, params)
 	local items = {}
 	local root_dir = M._find_first_node_modules_dir()
-	local folders = self:option(params).folders
+	local folders = {""}
 	for _, folder in ipairs(folders) do
 		local start_folder = root_dir .. M._path_sep .. folder
 		if vim.fn.isdirectory(start_folder) == 1 then
