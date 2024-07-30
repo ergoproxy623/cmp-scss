@@ -8,7 +8,7 @@ M._find_first_node_modules_dir = function()
 	-- Loop until we reach the top level (root) directory or an empty path
 	while file_path ~= "" and file_path ~= "/" do
 		-- Check if the .git directory exists in the current file path
-		local git_dir = file_path .. "/src"
+		local git_dir = file_path .. "/node_modules"
 		if vim.fn.isdirectory(git_dir) == 1 then
 			return file_path
 		end
@@ -59,7 +59,7 @@ end
 M._getFilesWithExtension = function(dir, extension, files)
 	local files_out = files or {}
 
-	for _, f in ipairs(M._scan_dir(dir)) do
+	for _, f in ipairs(M._scan_dir('/src')) do
 		local file = tostring(f.name)
 		local type = tostring(f.type)
 		if file ~= "." and file ~= ".." then
