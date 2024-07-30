@@ -8,7 +8,7 @@ M._find_first_node_modules_dir = function()
 	-- Loop until we reach the top level (root) directory or an empty path
 	while file_path ~= "" and file_path ~= "/" do
 		-- Check if the .git directory exists in the current file path
-		local git_dir = file_path .. "/node_modules"
+		local git_dir = file_path .. "/src"
 		if vim.fn.isdirectory(git_dir) == 1 then
 			return file_path
 		end
