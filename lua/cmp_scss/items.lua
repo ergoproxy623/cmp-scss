@@ -59,7 +59,7 @@ end
 M._getFilesWithExtension = function(dir, extension, files)
 	local files_out = files or {}
 
-	for _, f in ipairs(M._scan_dir('/src')) do
+	for _, f in ipairs(M._scan_dir(dir)) do
 		local file = tostring(f.name)
 		local type = tostring(f.type)
 		if file ~= "." and file ~= ".." then
